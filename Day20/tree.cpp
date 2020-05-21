@@ -1,5 +1,5 @@
 // SOlution:
-// Technique: Pre-order Traversal
+// Technique: In-order Traversal
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -13,22 +13,22 @@
  */
 class Solution {
 public:
-    void preorder(TreeNode *root,int &count,int &value,int k)
+    void inorder(TreeNode *root,int &count,int &value,int k)
     {
         if(root==NULL)
             return;
         
-        preorder(root->left,count,value,k);
+        inorder(root->left,count,value,k);
         count++;
         if(count==k)
             value=root->val;
-        preorder(root->right,count,value,k);
+        inorder(root->right,count,value,k);
         return;
     }
     int kthSmallest(TreeNode* root, int k) {
      int count=0;
         int value=0;
-       preorder(root,count,value,k); 
+       inorder(root,count,value,k); 
         return value;
         
     }
